@@ -71,3 +71,11 @@ input {
   color: #ff7143;
   padding: 20px 20px 100px 20px;
 }
+
+.dev-info {
+  text-align: center;
+  font-size: smaller;
+}
+.weather-det {
+  color: #42a5f5;
+}
