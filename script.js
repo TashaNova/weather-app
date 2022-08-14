@@ -3,7 +3,7 @@
 let citySearch = document.querySelector("form");
 let userCity = document.querySelector("#searchMenu");
 let newCity = document.querySelector("#cityName");
-newCity.innerHTML = `${userCity.value}`;
+let userTemp = document.querySelector("#current-temperature");
 
 citySearch.addEventListener("click", searchCity);
 
@@ -17,8 +17,12 @@ function searchCity(event) {
 
 function showCityTemp(response) {
   console.log(response);
-  let userTemp = document.querySelector("#current-temperature");
-  userTemp.innerHTML = response.data;
+  userTemp.innerHTML = Math.round(response.data.main.temp);
+  newCity.innerHTML = userCity.value;
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  let pressure = document.querySelector("#pressure");
+  pressure.innerHTML = `Pressure: ${response.data.main.pressure}`;
 }
 
 //Date
