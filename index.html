@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Weather App</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container"> 
+      <div class="row">
+      <div class="col">
+      <h1 id="cityName">Kyiv</h1>
+      <h2>
+        <span id="current-temperature"></span> 
+        °C  
+        <br />
+        <span id="time-string">Tue 15:05</span>
+      </h2>
+      <p class="humidity">1</p>
+      <p class="discription">1</p>
+</div>
+      <div class="col">
+      <div class="card" style="width: 18rem">
+        <img src="card.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p class="card-text">
+            <div class="row">
+				<div class="col">
+					4pm <br> 21° <br>☀️
+				</div>
+				<div class="col">
+					5pm <br> 20° <br>☀️
+				</div>
+				<div class="col">
+					6pm <br> 18° <br>🌤
+				</div>
+				<div class="col">
+					7pm <br> 19° <br>⛅️
+				</div>
+				 <div class="col">
+					8pm <br> 16° <br>☁️
+				</div>
+			</div>
+          </p>
+		  </div>
+        </div>
+      </div>
+      </div>
+		<div class="week-weather">
+         <div class="row">
+			<div class="col">
+				Mon <br>
+               🌝 +15 <br>
+                🌚 +9
+		 </div>
+		 <div class="col">
+				Tue <br>
+               🌝 +14 <br>
+                🌚 +7
+		 </div>
+		 <div class="col">
+				Wed <br>
+               🌝 +17 <br>
+                🌚 +12
+		 </div>
+		 <div class="col">
+				Thu <br>
+               🌝 +18 <br>
+                🌚 +12
+		 </div>
+		 <div class="col">
+				Fr <br>
+               🌝 +17 <br>
+                🌚 +11
+		 </div>
+         </div>
+	   </div>
+
+  <form id="search-button">
+	<input type="text" id="searchMenu" placeholder="Enter a city">
+	<input type="submit" id="submit-button"
+	value="Search">
+
+  </form>
+
+
+    <div class="row cities-examples">
+	     <div class="col"> London</div>
+	     <div class="col"> Ottawa</div>
+	     <div class="col"> Warsaw</div>
+	     <div class="col"> Paris</div>
+    </div>
+
+    </div>
+    <script src="script.js">
+    </script>
+  </body>
+</html>

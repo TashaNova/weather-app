@@ -1,0 +1,73 @@
+.container {
+  max-width: 600px;
+  background-color: #eaf6ff;
+  border-radius: 3px;
+  margin: 50px;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+h1 {
+  color: #ff7143;
+  margin-top: 100px;
+  font-weight: bold;
+}
+
+h2 {
+  color: #42a5f5;
+}
+p {
+  padding-left: 20px;
+}
+
+form {
+  text-align: center;
+}
+
+a {
+  color: #42a5f5;
+}
+
+.card {
+  --bs-card-spacer-y: 0rem;
+  --bs-card-spacer-x: 1px;
+  font-size: 15px;
+  margin: 100px 50px 0 0;
+}
+.card-img-top {
+  height: 5px;
+}
+.card-text {
+  padding: 0 5px;
+}
+
+.week-weather {
+  text-align: center;
+  color: #42a5f5;
+  padding: 20px;
+}
+
+input {
+  background-color: #eaf6ff;
+  border-color: #42a5f5;
+  border-style: line;
+  border-radius: 4px;
+  color: #ff7143;
+  padding: 7px 25px;
+}
+:-ms-input-placeholder {
+  color: #42a5f5;
+}
+.btn-primary {
+  background-color: #42a5f5;
+  border-color: #42a5f5;
+}
+
+.cities-examples {
+  text-align: center;
+  font-size: 20px;
+  color: #ff7143;
+  padding: 20px 20px 100px 20px;
+}
