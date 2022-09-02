@@ -64,6 +64,13 @@ input {
   background-color: #42a5f5;
   border-color: #42a5f5;
 }
+.forcast-days {
+  font-weight: bold;
+}
+
+.forecast-temperature {
+  font-size: smaller;
+}
 
 .cities-examples {
   text-align: center;
