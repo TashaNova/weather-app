@@ -31,9 +31,23 @@ function formatForecastDay(timestamp) {
   return days[day];
 }
 
+function formatForcastHour(timestamp) {
+  let time = new Date(timestamp * 1000);
+  let hour = time.getHours();
+  let hours = ["1am", "2am"];
+  return hours[hour];
+}
+
 function displayForecast(response) {
+  console.log(response.data);
+  console.log(response.data.daily);
+  console.log(response.data.hourly);
   let forecast = response.data.daily;
+  let hourlyForecast = response.data.hourly;
+
   let forecastElement = document.querySelector("#forecast");
+  let hourlyForecastElement = document.querySelector(".hourForecast");
+
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
@@ -47,10 +61,10 @@ function displayForecast(response) {
               <div class="forecast-temperature">
                <span class="forecast-temperature-max">🌝 ${Math.round(
                  forecastDay.temp.max
-               )}</span> 
+               )}°</span> 
                <span class="forecast-temperature-min">🌚 ${Math.round(
                  forecastDay.temp.min
-               )}</span>
+               )}°</span>
                </div>
 		       </div>`;
     }
@@ -58,6 +72,26 @@ function displayForecast(response) {
 
   forecastHTML += `</div>`;
   forecastElement.innerHTML = forecastHTML;
+
+  let hourlyForecastHTML = `<div class="row">`;
+  hourlyForecast.forEach(function (forecastHour, index) {
+    if (index < 4) {
+      hourlyForecastHTML += `<div class="col">
+              <div>
+                <ul class="hourly-forecast" id="hourly-forecast">
+                  <li class="hour">${formatForecastHours(forecastHour.dt)}</li>
+                  <li class="hourly-temp">${Math.round(forecastHour.temp)}</li>
+                  <li class="hourly-icon"> <img src="http://openweathermap.org/img/wn/${
+                    forecastHour.weather[0].icon
+                  }@2x.png" alt="" width="30px"></li>
+                </ul>
+				      </div>
+			      </div>`;
+    }
+  });
+
+  hourlyForecastHTML += `</div>`;
+  hourlyForecastElement.innerHTML = hourlyForecastHTML;
 }
 
 function getForecast(coordinates) {
@@ -89,7 +123,6 @@ function showCityTemp(response) {
 
 function searchCity(city) {
   let apiKey = "8c49740cd3e1e284d60cee5be68d2a24";
-  //city = "Kyiv";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showCityTemp);
@@ -97,11 +130,31 @@ function searchCity(city) {
 
 function getUserCity(event) {
   event.preventDefault();
-  let cityInput = document.querySelector("#searchMenu");
+  let cityInput = document.querySelector("#searchMenu", "#London");
   searchCity(cityInput.value);
 }
 
+function searchLondon() {
+  searchCity("London");
+}
+function searchKyiv() {
+  searchCity("Kyiv");
+}
+function searchOttawa() {
+  searchCity("Ottawa");
+}
+function searchParis() {
+  searchCity("Paris");
+}
 let citySearch = document.querySelector("form");
+let cityLondon = document.querySelector("#London");
+let cityOttawa = document.querySelector("#Ottawa");
+let cityKyiv = document.querySelector("#Kyiv");
+let cityParis = document.querySelector("#Paris");
 citySearch.addEventListener("submit", getUserCity);
+cityLondon.addEventListener("click", searchLondon);
+cityOttawa.addEventListener("click", searchOttawa);
+cityKyiv.addEventListener("click", searchKyiv);
+cityParis.addEventListener("click", searchParis);
 
 searchCity("New York");

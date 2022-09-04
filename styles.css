@@ -72,11 +72,26 @@ input {
   font-size: smaller;
 }
 
+.hourly-forecast {
+  list-style: none;
+  padding: 5px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+
 .cities-examples {
   text-align: center;
   font-size: 20px;
   color: #ff7143;
   padding: 20px 20px 100px 20px;
+}
+a {
+  text-decoration: none;
+  color: #ff7143;
+}
+a:hover {
+  color: #1d67a3;
 }
 
 .dev-info {
