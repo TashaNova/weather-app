@@ -79,11 +79,19 @@ function showCityTemp(response) {
   let descriptionElement = document.querySelector("#description");
   let iconElement = document.querySelector("#icon");
   let dateElement = document.querySelector("#time-string");
+  let maxTemp = document.querySelector("#temp-max");
+  let minTemp = document.querySelector("#temp-min");
 
   newCity.innerHTML = response.data.name;
   userTemp.innerHTML = Math.round(response.data.main.temp);
   windSpeadElement.innerHTML = `Wind: ${response.data.wind.speed} km/h`;
   descriptionElement.innerHTML = `${response.data.weather[0].description}`;
+  maxTemp.innerHTML = `Maximum temperature: ${Math.round(
+    response.data.main.temp_max
+  )}°C`;
+  minTemp.innerHTML = `Minimum temperature: ${Math.round(
+    response.data.main.temp_min
+  )}°C`;
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
